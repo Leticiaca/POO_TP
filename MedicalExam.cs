@@ -8,8 +8,8 @@ using System.Xml.Linq;
 
 public enum MedicalExamType
 {
-    DENTALEXAMINATION,
-    RADIOGRAPHY
+    DENTALEXAMINATION, // Exame Dental
+    RADIOGRAPHY // Radiografia.
 }
 
 
@@ -21,9 +21,9 @@ namespace DentalClinic_AdriLeti
 
         #region Attributes
         
-        private string name;
-        private MedicalExamType type;
-       
+        private string name; //Name of the medical examination.
+        private MedicalExamType type; //Type of medical exam, according to the 'MedicalExamType' enum.
+        
     #endregion
     #region Methods
 
@@ -33,8 +33,8 @@ namespace DentalClinic_AdriLeti
         /// </summary>
     public MedicalExam()
     {
-        name = "Exam";
-        type = MedicalExamType.RADIOGRAPHY;
+        name = "Exam"; //Assigns a default name to the exam.
+        type = MedicalExamType.RADIOGRAPHY; //Assigns a default type to the exam.
 
     }
         /// <summary>
@@ -44,8 +44,8 @@ namespace DentalClinic_AdriLeti
         /// <param name="t"></param>
     public MedicalExam(string medicalExamName, MedicalExamType t)
     {
-        name = medicalExamName;
-        type = t;
+        name = medicalExamName; //Assigns the specified name to the exam.
+            type = t; //Assigns the specified type to the exam.
     }
 
         #endregion
@@ -62,7 +62,7 @@ namespace DentalClinic_AdriLeti
                 if (!string.IsNullOrWhiteSpace(value))
                     name = value;
                 else
-                    throw new ArgumentException("This parameter can't be empty or null.");
+                    throw new ArgumentException("This parameter can't be empty or null."); //Throws an exception if the value is invalid.
             }
         }
         /// <summary>

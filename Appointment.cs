@@ -4,12 +4,13 @@ using System.Linq;
 using System.Security.Cryptography.X509Certificates;
 using System.Text;
 using System.Threading.Tasks;
+using System.Xml.Linq;
 
 namespace DentalClinic_AdriLeti
 {
     public class Appointment
     {
-        public enum AppointmentStatus
+        public enum AppointmentStatus // Declaration of an 'AppointmentStatus' enum with possible states for an appointment. 
         {
             Scheduled,
             Completed,
@@ -18,11 +19,12 @@ namespace DentalClinic_AdriLeti
         }
         #region Attributes
 
-        private DateTime appointmentDate = DateTime.Now;
-        public double MedicalSpecialtyId;
-        public int iN;
-        public int nPI;
-        private AppointmentStatus status;
+        // Private and public attributes of the class.
+        private DateTime appointmentDate = DateTime.Now; //Schedule date, default is the current date
+        public double MedicalSpecialtyId; // Medical specialty ID, declared as public
+        public int iN; //Patient ID, declared as public
+        public int nPI; //Medium ID, declared as public
+        private AppointmentStatus status; //Appointment status, private
 
 
         #endregion
@@ -45,14 +47,14 @@ namespace DentalClinic_AdriLeti
         #region Properties
         public DateTime AppointmentDate
         {
-            get { return appointmentDate; }
-            set { appointmentDate = value; }
+            get { return appointmentDate; } //Returns the scheduling date
+            set { appointmentDate = value; } //Allows you to change the appointment date
         }
 
         public AppointmentStatus Status
         {
-            get { return status; }
-            set {  status = value; }
+            get { return status; } //returns the status of the appointment
+            set {  status = value; } //allows you to change the status of the appointment
         }
         #endregion
 

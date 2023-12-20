@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.IO;
+using System.Xml.Linq;
 
 namespace DentalClinic_AdriLeti
 {/// <summary>
@@ -12,6 +13,7 @@ namespace DentalClinic_AdriLeti
     public class Appointments
     {
         #region Attributes
+        //declaring a list of 'appointment' objects
         public List<Appointment> appointments;
         #endregion
 
@@ -23,17 +25,17 @@ namespace DentalClinic_AdriLeti
             appointments.Add(appointment);
         }
 
-        //Listar as consultas por médico
+        //list appointments by doctor
         public List<Appointment> GetAppointmentsByDoctor(int doctorId)
         {
             return appointments.Where(Appointment => Appointment.nPI == doctorId).ToList();
         }
-        //listar consultas por paciente
+        //list appointments by patient
         public List<Appointment> GetAppointmentsByPatient(int patientId)
         {
             return appointments.Where(Appointment => Appointment.iN == patientId).ToList();
         }
-        // Listar consultas por especialidade
+        //list consultations by specialty
         public List<Appointment> GetAppointmentsBySpecialty(double specialtyId)
         {
             return appointments.Where(Appointment => Appointment.MedicalSpecialtyId == specialtyId).ToList();
@@ -43,8 +45,8 @@ namespace DentalClinic_AdriLeti
         #region Constructors
         public Appointments()
         {
-            // Não é necessário reatribuir o appointments aqui pois já foi inicializado na declaração do campo
-        }
+
+            //It is not necessary to reassign appointments here as it has already been initialized in the field declaration        }
         #endregion
 
         #region Properties
@@ -60,7 +62,7 @@ namespace DentalClinic_AdriLeti
         #endregion
 
         #region Destructor
-        ~Appointments() { }
+        ~Appointments() {}
 
         #endregion
 
