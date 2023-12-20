@@ -1,0 +1,103 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using System.Xml.Linq;
+
+
+public enum MedicalExamType
+{
+    DENTALEXAMINATION,
+    RADIOGRAPHY
+}
+
+
+namespace DentalClinic_AdriLeti
+{
+
+    public class MedicalExam
+    {
+
+        #region Attributes
+        
+        private string name;
+        private MedicalExamType type;
+       
+    #endregion
+    #region Methods
+
+    #region Constructors
+        /// <summary>
+        /// the default constructor
+        /// </summary>
+    public MedicalExam()
+    {
+        name = "Exam";
+        type = MedicalExamType.RADIOGRAPHY;
+
+    }
+        /// <summary>
+        /// construtor parametrizado
+        /// </summary>
+        /// <param name="medicalExamName"></param>
+        /// <param name="t"></param>
+    public MedicalExam(string medicalExamName, MedicalExamType t)
+    {
+        name = medicalExamName;
+        type = t;
+    }
+
+        #endregion
+
+           #region Properties
+        /// <summary>
+        /// O nome tem que ser válido
+        /// </summary>
+        public string Name
+        {
+            get { return name; }
+            set
+            {
+                if (!string.IsNullOrWhiteSpace(value))
+                    name = value;
+                else
+                    throw new ArgumentException("This parameter can't be empty or null.");
+            }
+        }
+        /// <summary>
+        /// propriedade tipo
+        /// </summary>
+        public MedicalExamType Type
+        {
+            get { return type; }
+            set { type = value; }
+        }
+
+        #endregion
+
+        #region Overrides
+        /// <summary>
+        /// string to string
+        /// </summary>
+        /// <returns>devolve o nome e tipo de exame medico</returns>
+        public override string ToString()
+        {
+            return $"Medical Exam: {Name}, Type: {Type}";
+        }
+
+        #endregion
+        #region OtherMethods
+        #endregion
+
+        #region Destructor
+        ~MedicalExam() { }
+
+        #endregion
+
+        #endregion
+
+
+
+    }
+}
